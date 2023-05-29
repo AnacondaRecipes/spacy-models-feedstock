@@ -291,6 +291,20 @@ source:
     folder: ro_core_news_sm
 {% endif %}  # ro
 
+{% if spacy_lang == "ru" %}
+  - url: https://github.com/explosion/spacy-models/releases/download/ru_core_news_lg-{{ version }}/ru_core_news_lg-{{ version }}.tar.gz
+    sha256: e6c03276427b89532cc45820b27a1a547e8f53f772e3ccb615af3b06e9d6b4fd
+    folder: ru_core_news_lg
+
+  - url: https://github.com/explosion/spacy-models/releases/download/ru_core_news_md-{{ version }}/ru_core_news_md-{{ version }}.tar.gz
+    sha256: 5d24b361efd0d1d502fac47e152505311886d94cc630d90ad4d3fe75a7c8145b
+    folder: ru_core_news_md
+
+  - url: https://github.com/explosion/spacy-models/releases/download/ru_core_news_sm-{{ version }}/ru_core_news_sm-{{ version }}.tar.gz
+    sha256: d6915b14def189076ab4ae3d0456078caab4fb46e8c4386f7280173a517f6079
+    folder: ru_core_news_sm
+{% endif %}  # ru
+
 {% if spacy_lang == "sv" %}
   - url: https://github.com/explosion/spacy-models/releases/download/sv_core_news_lg-{{ version }}/sv_core_news_lg-{{ version }}.tar.gz
     sha256: bf66eefba7ea3f735e9a5beb524e2bbc74ca8f69dbe6bd5d3ac659b239721980
@@ -304,6 +318,24 @@ source:
     sha256: 479bad477455647214a618f4ee8e82177064fa1ddbd68a491add52647b411cb0
     folder: sv_core_news_sm
 {% endif %}  # sv
+
+{% if spacy_lang == "uk" %}
+  - url: https://github.com/explosion/spacy-models/releases/download/uk_core_news_lg-{{ version }}/uk_core_news_lg-{{ version }}.tar.gz
+    sha256: e24e7130b573bf52cd6a3dd7237d4918f93b3218723eb7b9619351ddadec8942
+    folder: uk_core_news_lg
+
+  - url: https://github.com/explosion/spacy-models/releases/download/uk_core_news_md-{{ version }}/uk_core_news_md-{{ version }}.tar.gz
+    sha256: 57043482c57ebe8336c0930b387412f4aa013573b09fec83a97016955338af16
+    folder: uk_core_news_md
+
+  - url: https://github.com/explosion/spacy-models/releases/download/uk_core_news_sm-{{ version }}/uk_core_news_sm-{{ version }}.tar.gz
+    sha256: df3e5cec8bcd0031079d7a9c6bdb824e2793e2939654c24ed6db38e897ac6bb6
+    folder: uk_core_news_sm
+
+  - url: https://github.com/explosion/spacy-models/releases/download/uk_core_news_trf-{{ version }}/uk_core_news_trf-{{ version }}.tar.gz
+    sha256: cb21c1384506dba79be33c0c39fd83e66d9ed24121d03d5acf2e52b523db7009
+    folder: uk_core_news_trf
+{% endif %}  # uk
 
 {% if spacy_lang == "xx" %}
   - url: https://github.com/explosion/spacy-models/releases/download/xx_ent_wiki_sm-{{ version }}/xx_ent_wiki_sm-{{ version }}.tar.gz
@@ -340,10 +372,11 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
-  run:
     - setuptools
+    - wheel
+  run:
     - python >=3.6
 
 test:
@@ -357,11 +390,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ca_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ca_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -386,11 +421,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ca_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ca_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -415,11 +452,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ca_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ca_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -444,11 +483,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ca_core_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ca_core_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -476,11 +517,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd da_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd da_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -505,11 +548,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd da_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd da_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -534,11 +579,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd da_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd da_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -563,11 +610,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd da_core_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd da_core_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -595,11 +644,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd de_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd de_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -624,11 +675,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd de_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd de_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -653,11 +706,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd de_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd de_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -682,11 +737,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd de_dep_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd de_dep_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -714,11 +771,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd el_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd el_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -743,11 +802,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd el_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd el_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -772,11 +833,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd el_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd el_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -803,11 +866,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd en_core_web_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd en_core_web_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -832,11 +897,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd en_core_web_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd en_core_web_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -861,11 +928,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd en_core_web_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd en_core_web_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -890,11 +959,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd en_core_web_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd en_core_web_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -922,11 +993,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd es_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd es_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -951,11 +1024,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd es_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd es_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -980,11 +1055,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd es_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd es_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1009,11 +1086,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd es_dep_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd es_dep_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1041,11 +1120,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fi_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fi_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1070,11 +1151,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fi_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fi_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1099,11 +1182,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fi_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fi_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1130,11 +1215,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fr_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fr_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1159,11 +1246,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fr_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fr_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1188,11 +1277,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fr_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fr_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1217,11 +1308,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd fr_dep_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd fr_dep_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1252,11 +1345,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd hr_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd hr_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1281,11 +1376,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd hr_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd hr_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1310,11 +1407,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd hr_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd hr_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1341,11 +1440,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd it_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd it_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1370,11 +1471,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd it_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd it_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1399,11 +1502,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd it_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd it_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1430,11 +1535,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ko_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ko_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1459,11 +1566,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ko_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ko_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1488,11 +1597,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ko_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ko_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1519,11 +1630,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd lt_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd lt_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1548,11 +1661,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd lt_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd lt_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1577,11 +1692,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd lt_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd lt_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1608,11 +1725,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd mk_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd mk_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1637,11 +1756,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd mk_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd mk_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1666,11 +1787,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd mk_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd mk_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1697,11 +1820,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd nb_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd nb_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1726,11 +1851,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd nb_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd nb_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1755,11 +1882,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd nb_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd nb_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1786,11 +1915,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd nl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd nl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1815,11 +1946,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd nl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd nl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1844,11 +1977,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd nl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd nl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1875,11 +2010,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd pl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd pl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1904,11 +2041,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd pl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd pl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1933,11 +2072,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd pl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd pl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1964,11 +2105,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd pt_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd pt_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -1993,11 +2136,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd pt_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd pt_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2022,11 +2167,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd pt_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd pt_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2053,11 +2200,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ro_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ro_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2082,11 +2231,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ro_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ro_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2111,11 +2262,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd ro_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd ro_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2137,16 +2290,116 @@ outputs:
         - ro_core_news_sm/LICENSES_SOURCES
 {% endif %}  # ro
 
+{% if spacy_lang == "ru" %}
+  - name: spacy-model-ru_core_news_lg
+    build:
+      noarch: python
+      script:
+        - cd ru_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - pymorphy3 >=1.0.0
+    test:
+      imports:
+        - ru_core_news_lg
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('ru_core_news_lg').load()"
+        - python -c "__import__('spacy').load('ru_core_news_lg')"
+    about:
+      summary: Russian pipeline optimized for CPU.
+      description: |-
+        Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - ru_core_news_lg/LICENSE
+        - ru_core_news_lg/LICENSES_SOURCES
+
+  - name: spacy-model-ru_core_news_md
+    build:
+      noarch: python
+      script:
+        - cd ru_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - pymorphy3 >=1.0.0
+    test:
+      imports:
+        - ru_core_news_md
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('ru_core_news_md').load()"
+        - python -c "__import__('spacy').load('ru_core_news_md')"
+    about:
+      summary: Russian pipeline optimized for CPU.
+      description: |-
+        Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - ru_core_news_md/LICENSE
+        - ru_core_news_md/LICENSES_SOURCES
+
+  - name: spacy-model-ru_core_news_sm
+    build:
+      noarch: python
+      script:
+        - cd ru_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - pymorphy3 >=1.0.0
+    test:
+      imports:
+        - ru_core_news_sm
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('ru_core_news_sm').load()"
+        - python -c "__import__('spacy').load('ru_core_news_sm')"
+    about:
+      summary: Russian pipeline optimized for CPU.
+      description: |-
+        Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - ru_core_news_sm/LICENSE
+        - ru_core_news_sm/LICENSES_SOURCES
+{% endif %}  # ru
+
 {% if spacy_lang == "sv" %}
   - name: spacy-model-sv_core_news_lg
     build:
       noarch: python
       script:
-        - cd sv_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd sv_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2171,11 +2424,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd sv_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd sv_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2200,11 +2455,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd sv_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd sv_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2226,16 +2483,154 @@ outputs:
         - sv_core_news_sm/LICENSES_SOURCES
 {% endif %}  # sv
 
+{% if spacy_lang == "uk" %}
+  - name: spacy-model-uk_core_news_lg
+    build:
+      noarch: python
+      script:
+        - cd uk_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - pymorphy3-dicts-uk
+        - pymorphy3 >=1.0.0
+    test:
+      imports:
+        - uk_core_news_lg
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('uk_core_news_lg').load()"
+        - python -c "__import__('spacy').load('uk_core_news_lg')"
+    about:
+      summary: Ukrainian pipeline optimized for CPU.
+      description: |-
+        Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - uk_core_news_lg/LICENSE
+        - uk_core_news_lg/LICENSES_SOURCES
+
+  - name: spacy-model-uk_core_news_md
+    build:
+      noarch: python
+      script:
+        - cd uk_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - pymorphy3-dicts-uk
+        - pymorphy3 >=1.0.0
+    test:
+      imports:
+        - uk_core_news_md
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('uk_core_news_md').load()"
+        - python -c "__import__('spacy').load('uk_core_news_md')"
+    about:
+      summary: Ukrainian pipeline optimized for CPU.
+      description: |-
+        Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - uk_core_news_md/LICENSE
+        - uk_core_news_md/LICENSES_SOURCES
+
+  - name: spacy-model-uk_core_news_sm
+    build:
+      noarch: python
+      script:
+        - cd uk_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - pymorphy3-dicts-uk
+        - pymorphy3 >=1.0.0
+    test:
+      imports:
+        - uk_core_news_sm
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('uk_core_news_sm').load()"
+        - python -c "__import__('spacy').load('uk_core_news_sm')"
+    about:
+      summary: Ukrainian pipeline optimized for CPU.
+      description: |-
+        Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - uk_core_news_sm/LICENSE
+        - uk_core_news_sm/LICENSES_SOURCES
+
+  - name: spacy-model-uk_core_news_trf
+    build:
+      noarch: python
+      script:
+        - cd uk_core_news_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools
+        - wheel
+      run:
+        - python >=3.6
+        - spacy {{ spacy }}
+        - protobuf<3.21.0
+        - pymorphy3-dicts-uk
+        - pymorphy3 >=1.0.0
+        - spacy-transformers >=1.2.0.dev0,<1.3.0
+    test:
+      imports:
+        - uk_core_news_trf
+      requires:
+        - pip
+      commands:
+        - pip check
+        - python -c "__import__('uk_core_news_trf').load()"
+        - python -c "__import__('spacy').load('uk_core_news_trf')"
+    about:
+      summary: Ukrainian transformer pipeline (ukr-models/xlm-roberta-base-uk).
+      description: |-
+        Components: transformer, morphologizer, parser, ner, attribute_ruler, lemmatizer.
+      license_file:
+        - uk_core_news_trf/LICENSE
+        - uk_core_news_trf/LICENSES_SOURCES
+{% endif %}  # uk
+
 {% if spacy_lang == "xx" %}
   - name: spacy-model-xx_ent_wiki_sm
     build:
       noarch: python
       script:
-        - cd xx_ent_wiki_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd xx_ent_wiki_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2260,11 +2655,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd xx_sent_ud_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd xx_sent_ud_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2291,11 +2688,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd zh_core_web_lg && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd zh_core_web_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2321,11 +2720,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd zh_core_web_md && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd zh_core_web_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2351,11 +2752,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd zh_core_web_sm && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd zh_core_web_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2381,11 +2784,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd zh_core_web_trf && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd zh_core_web_trf && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}
@@ -2413,6 +2818,7 @@ outputs:
 about:
   home: https://spacy.io
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   summary: Models for the spaCy Natural Language Processing (NLP) library
   doc_url: https://spacy.io/models
@@ -2422,3 +2828,4 @@ extra:
   feedstock-name: spacy-models
   recipe-maintainers:
     - bollwyvl
+    - skupr-anaconda
