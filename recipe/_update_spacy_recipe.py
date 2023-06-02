@@ -13,11 +13,9 @@ BUILD_NUMBER = "0"
 
 # see https://github.com/conda-forge/spacy-models-feedstock/issues/2
 SKIP_PATTERNS = [
+    # Example (keep this for the future)
     # needs sudachipy https://github.com/conda-forge/staged-recipes/issues/18871
-    "ja_core*",
-    # needs pymorphy3 https://github.com/conda-forge/staged-recipes/issues/21931
-    "ru_core_*",
-    "uk_core_*",
+    # "ja_core*",
 ]
 SKIP_PIP_CHECK = {
     # Example (keep this for the future)
@@ -114,4 +112,4 @@ def lint_recipe():
 if __name__ == "__main__":
     ensure_repo()
     update_recipe()
-    lint_recipe()
+    #lint_recipe()

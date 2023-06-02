@@ -30,10 +30,11 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
-  run:
     - setuptools
+    - wheel
+  run:
     - python >=3.6
 
 test:
@@ -48,11 +49,13 @@ outputs:
     build:
       noarch: python
       script:
-        - cd << m.lang >>_<< m.name >> && {{ PYTHON }} -m pip install . -vv --no-deps
+        - cd << m.lang >>_<< m.name >> && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
-        - python >=3.6
+        - python
         - pip
+        - setuptools
+        - wheel
       run:
         - python >=3.6
         - spacy {{ spacy }}<% for req in m.requirements %>
@@ -86,6 +89,7 @@ outputs:
 about:
   home: https://spacy.io
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   summary: Models for the spaCy Natural Language Processing (NLP) library
   doc_url: https://spacy.io/models
@@ -95,3 +99,4 @@ extra:
   feedstock-name: spacy-models
   recipe-maintainers:
     - bollwyvl
+    - skupr-anaconda
