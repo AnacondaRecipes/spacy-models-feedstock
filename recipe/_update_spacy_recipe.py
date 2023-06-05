@@ -15,7 +15,7 @@ BUILD_NUMBER = "0"
 SKIP_PATTERNS = [
     # Example (keep this for the future)
     # needs sudachipy https://github.com/conda-forge/staged-recipes/issues/18871
-    # "ja_core*",
+    # "ja_core*"
 ]
 SKIP_PIP_CHECK = {
     # Example (keep this for the future)
