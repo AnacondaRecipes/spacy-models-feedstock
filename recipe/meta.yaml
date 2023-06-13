@@ -434,6 +434,7 @@ outputs:
       license_file:
         - ca_core_news_lg/LICENSE
         - ca_core_news_lg/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-ca_core_news_md
     build:
@@ -465,6 +466,7 @@ outputs:
       license_file:
         - ca_core_news_md/LICENSE
         - ca_core_news_md/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-ca_core_news_sm
     build:
@@ -496,6 +498,7 @@ outputs:
       license_file:
         - ca_core_news_sm/LICENSE
         - ca_core_news_sm/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-ca_core_news_trf
     build:
@@ -528,6 +531,7 @@ outputs:
       license_file:
         - ca_core_news_trf/LICENSE
         - ca_core_news_trf/LICENSES_SOURCES
+      license: GNU GPL 3.0
 {% endif %}  # ca
 
 {% if spacy_lang == "da" %}
@@ -561,6 +565,7 @@ outputs:
       license_file:
         - da_core_news_lg/LICENSE
         - da_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-da_core_news_md
     build:
@@ -592,6 +597,7 @@ outputs:
       license_file:
         - da_core_news_md/LICENSE
         - da_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-da_core_news_sm
     build:
@@ -623,6 +629,7 @@ outputs:
       license_file:
         - da_core_news_sm/LICENSE
         - da_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-da_core_news_trf
     build:
@@ -655,6 +662,7 @@ outputs:
       license_file:
         - da_core_news_trf/LICENSE
         - da_core_news_trf/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # da
 
 {% if spacy_lang == "de" %}
@@ -688,6 +696,7 @@ outputs:
       license_file:
         - de_core_news_lg/LICENSE
         - de_core_news_lg/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-de_core_news_md
     build:
@@ -719,6 +728,7 @@ outputs:
       license_file:
         - de_core_news_md/LICENSE
         - de_core_news_md/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-de_core_news_sm
     build:
@@ -750,6 +760,7 @@ outputs:
       license_file:
         - de_core_news_sm/LICENSE
         - de_core_news_sm/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-de_dep_news_trf
     build:
@@ -782,6 +793,7 @@ outputs:
       license_file:
         - de_dep_news_trf/LICENSE
         - de_dep_news_trf/LICENSES_SOURCES
+      license: MIT
 {% endif %}  # de
 
 {% if spacy_lang == "el" %}
@@ -815,6 +827,7 @@ outputs:
       license_file:
         - el_core_news_lg/LICENSE
         - el_core_news_lg/LICENSES_SOURCES
+      license: CC BY-NC-SA 3.0
 
   - name: spacy-model-el_core_news_md
     build:
@@ -846,6 +859,7 @@ outputs:
       license_file:
         - el_core_news_md/LICENSE
         - el_core_news_md/LICENSES_SOURCES
+      license: CC BY-NC-SA 3.0
 
   - name: spacy-model-el_core_news_sm
     build:
@@ -877,6 +891,7 @@ outputs:
       license_file:
         - el_core_news_sm/LICENSE
         - el_core_news_sm/LICENSES_SOURCES
+      license: CC BY-NC-SA 3.0
 {% endif %}  # el
 
 {% if spacy_lang == "en" %}
@@ -910,6 +925,7 @@ outputs:
       license_file:
         - en_core_web_lg/LICENSE
         - en_core_web_lg/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-en_core_web_md
     build:
@@ -941,6 +957,7 @@ outputs:
       license_file:
         - en_core_web_md/LICENSE
         - en_core_web_md/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-en_core_web_sm
     build:
@@ -972,6 +989,7 @@ outputs:
       license_file:
         - en_core_web_sm/LICENSE
         - en_core_web_sm/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-en_core_web_trf
     build:
@@ -1004,6 +1022,7 @@ outputs:
       license_file:
         - en_core_web_trf/LICENSE
         - en_core_web_trf/LICENSES_SOURCES
+      license: MIT
 {% endif %}  # en
 
 {% if spacy_lang == "es" %}
@@ -1037,6 +1056,7 @@ outputs:
       license_file:
         - es_core_news_lg/LICENSE
         - es_core_news_lg/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-es_core_news_md
     build:
@@ -1068,6 +1088,7 @@ outputs:
       license_file:
         - es_core_news_md/LICENSE
         - es_core_news_md/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-es_core_news_sm
     build:
@@ -1099,6 +1120,7 @@ outputs:
       license_file:
         - es_core_news_sm/LICENSE
         - es_core_news_sm/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-es_dep_news_trf
     build:
@@ -1131,6 +1153,7 @@ outputs:
       license_file:
         - es_dep_news_trf/LICENSE
         - es_dep_news_trf/LICENSES_SOURCES
+      license: GNU GPL 3.0
 {% endif %}  # es
 
 {% if spacy_lang == "fi" %}
@@ -1164,6 +1187,7 @@ outputs:
       license_file:
         - fi_core_news_lg/LICENSE
         - fi_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-fi_core_news_md
     build:
@@ -1195,6 +1219,7 @@ outputs:
       license_file:
         - fi_core_news_md/LICENSE
         - fi_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-fi_core_news_sm
     build:
@@ -1226,6 +1251,7 @@ outputs:
       license_file:
         - fi_core_news_sm/LICENSE
         - fi_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # fi
 
 {% if spacy_lang == "fr" %}
@@ -1259,6 +1285,7 @@ outputs:
       license_file:
         - fr_core_news_lg/LICENSE
         - fr_core_news_lg/LICENSES_SOURCES
+      license: LGPL-LR
 
   - name: spacy-model-fr_core_news_md
     build:
@@ -1290,6 +1317,7 @@ outputs:
       license_file:
         - fr_core_news_md/LICENSE
         - fr_core_news_md/LICENSES_SOURCES
+      license: LGPL-LR
 
   - name: spacy-model-fr_core_news_sm
     build:
@@ -1321,6 +1349,7 @@ outputs:
       license_file:
         - fr_core_news_sm/LICENSE
         - fr_core_news_sm/LICENSES_SOURCES
+      license: LGPL-LR
 
   - name: spacy-model-fr_dep_news_trf
     build:
@@ -1356,6 +1385,7 @@ outputs:
       license_file:
         - fr_dep_news_trf/LICENSE
         - fr_dep_news_trf/LICENSES_SOURCES
+      license: LGPL-LR
 {% endif %}  # fr
 
 {% if spacy_lang == "hr" %}
@@ -1389,6 +1419,7 @@ outputs:
       license_file:
         - hr_core_news_lg/LICENSE
         - hr_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-hr_core_news_md
     build:
@@ -1420,6 +1451,7 @@ outputs:
       license_file:
         - hr_core_news_md/LICENSE
         - hr_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-hr_core_news_sm
     build:
@@ -1451,6 +1483,7 @@ outputs:
       license_file:
         - hr_core_news_sm/LICENSE
         - hr_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # hr
 
 {% if spacy_lang == "it" %}
@@ -1484,6 +1517,7 @@ outputs:
       license_file:
         - it_core_news_lg/LICENSE
         - it_core_news_lg/LICENSES_SOURCES
+      license: CC BY-NC-SA 3.0
 
   - name: spacy-model-it_core_news_md
     build:
@@ -1515,6 +1549,7 @@ outputs:
       license_file:
         - it_core_news_md/LICENSE
         - it_core_news_md/LICENSES_SOURCES
+      license: CC BY-NC-SA 3.0
 
   - name: spacy-model-it_core_news_sm
     build:
@@ -1546,6 +1581,7 @@ outputs:
       license_file:
         - it_core_news_sm/LICENSE
         - it_core_news_sm/LICENSES_SOURCES
+      license: CC BY-NC-SA 3.0
 {% endif %}  # it
 
 {% if spacy_lang == "ja" %}
@@ -1581,6 +1617,7 @@ outputs:
       license_file:
         - ja_core_news_lg/LICENSE
         - ja_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ja_core_news_md
     build:
@@ -1614,6 +1651,7 @@ outputs:
       license_file:
         - ja_core_news_md/LICENSE
         - ja_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ja_core_news_sm
     build:
@@ -1647,6 +1685,7 @@ outputs:
       license_file:
         - ja_core_news_sm/LICENSE
         - ja_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ja_core_news_trf
     build:
@@ -1681,6 +1720,7 @@ outputs:
       license_file:
         - ja_core_news_trf/LICENSE
         - ja_core_news_trf/LICENSES_SOURCES
+      license: CC BY-SA 3.0
 {% endif %}  # ja
 
 {% if spacy_lang == "ko" %}
@@ -1714,6 +1754,7 @@ outputs:
       license_file:
         - ko_core_news_lg/LICENSE
         - ko_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ko_core_news_md
     build:
@@ -1745,6 +1786,7 @@ outputs:
       license_file:
         - ko_core_news_md/LICENSE
         - ko_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ko_core_news_sm
     build:
@@ -1776,6 +1818,7 @@ outputs:
       license_file:
         - ko_core_news_sm/LICENSE
         - ko_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # ko
 
 {% if spacy_lang == "lt" %}
@@ -1809,6 +1852,7 @@ outputs:
       license_file:
         - lt_core_news_lg/LICENSE
         - lt_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-lt_core_news_md
     build:
@@ -1840,6 +1884,7 @@ outputs:
       license_file:
         - lt_core_news_md/LICENSE
         - lt_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-lt_core_news_sm
     build:
@@ -1871,6 +1916,7 @@ outputs:
       license_file:
         - lt_core_news_sm/LICENSE
         - lt_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # lt
 
 {% if spacy_lang == "mk" %}
@@ -1904,6 +1950,7 @@ outputs:
       license_file:
         - mk_core_news_lg/LICENSE
         - mk_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-mk_core_news_md
     build:
@@ -1935,6 +1982,7 @@ outputs:
       license_file:
         - mk_core_news_md/LICENSE
         - mk_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-mk_core_news_sm
     build:
@@ -1966,6 +2014,7 @@ outputs:
       license_file:
         - mk_core_news_sm/LICENSE
         - mk_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # mk
 
 {% if spacy_lang == "nb" %}
@@ -1999,6 +2048,7 @@ outputs:
       license_file:
         - nb_core_news_lg/LICENSE
         - nb_core_news_lg/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-nb_core_news_md
     build:
@@ -2030,6 +2080,7 @@ outputs:
       license_file:
         - nb_core_news_md/LICENSE
         - nb_core_news_md/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-nb_core_news_sm
     build:
@@ -2061,6 +2112,7 @@ outputs:
       license_file:
         - nb_core_news_sm/LICENSE
         - nb_core_news_sm/LICENSES_SOURCES
+      license: MIT
 {% endif %}  # nb
 
 {% if spacy_lang == "nl" %}
@@ -2094,6 +2146,7 @@ outputs:
       license_file:
         - nl_core_news_lg/LICENSE
         - nl_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-nl_core_news_md
     build:
@@ -2125,6 +2178,7 @@ outputs:
       license_file:
         - nl_core_news_md/LICENSE
         - nl_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-nl_core_news_sm
     build:
@@ -2156,6 +2210,7 @@ outputs:
       license_file:
         - nl_core_news_sm/LICENSE
         - nl_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # nl
 
 {% if spacy_lang == "pl" %}
@@ -2189,6 +2244,7 @@ outputs:
       license_file:
         - pl_core_news_lg/LICENSE
         - pl_core_news_lg/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-pl_core_news_md
     build:
@@ -2220,6 +2276,7 @@ outputs:
       license_file:
         - pl_core_news_md/LICENSE
         - pl_core_news_md/LICENSES_SOURCES
+      license: GNU GPL 3.0
 
   - name: spacy-model-pl_core_news_sm
     build:
@@ -2251,6 +2308,7 @@ outputs:
       license_file:
         - pl_core_news_sm/LICENSE
         - pl_core_news_sm/LICENSES_SOURCES
+      license: GNU GPL 3.0
 {% endif %}  # pl
 
 {% if spacy_lang == "pt" %}
@@ -2284,6 +2342,7 @@ outputs:
       license_file:
         - pt_core_news_lg/LICENSE
         - pt_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-pt_core_news_md
     build:
@@ -2315,6 +2374,7 @@ outputs:
       license_file:
         - pt_core_news_md/LICENSE
         - pt_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-pt_core_news_sm
     build:
@@ -2346,6 +2406,7 @@ outputs:
       license_file:
         - pt_core_news_sm/LICENSE
         - pt_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # pt
 
 {% if spacy_lang == "ro" %}
@@ -2379,6 +2440,7 @@ outputs:
       license_file:
         - ro_core_news_lg/LICENSE
         - ro_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ro_core_news_md
     build:
@@ -2410,6 +2472,7 @@ outputs:
       license_file:
         - ro_core_news_md/LICENSE
         - ro_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-ro_core_news_sm
     build:
@@ -2441,6 +2504,7 @@ outputs:
       license_file:
         - ro_core_news_sm/LICENSE
         - ro_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # ro
 
 {% if spacy_lang == "ru" %}
@@ -2475,6 +2539,7 @@ outputs:
       license_file:
         - ru_core_news_lg/LICENSE
         - ru_core_news_lg/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-ru_core_news_md
     build:
@@ -2507,6 +2572,7 @@ outputs:
       license_file:
         - ru_core_news_md/LICENSE
         - ru_core_news_md/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-ru_core_news_sm
     build:
@@ -2539,6 +2605,7 @@ outputs:
       license_file:
         - ru_core_news_sm/LICENSE
         - ru_core_news_sm/LICENSES_SOURCES
+      license: MIT
 {% endif %}  # ru
 
 {% if spacy_lang == "sv" %}
@@ -2572,6 +2639,7 @@ outputs:
       license_file:
         - sv_core_news_lg/LICENSE
         - sv_core_news_lg/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-sv_core_news_md
     build:
@@ -2603,6 +2671,7 @@ outputs:
       license_file:
         - sv_core_news_md/LICENSE
         - sv_core_news_md/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 
   - name: spacy-model-sv_core_news_sm
     build:
@@ -2634,6 +2703,7 @@ outputs:
       license_file:
         - sv_core_news_sm/LICENSE
         - sv_core_news_sm/LICENSES_SOURCES
+      license: CC BY-SA 4.0
 {% endif %}  # sv
 
 {% if spacy_lang == "uk" %}
@@ -2669,6 +2739,7 @@ outputs:
       license_file:
         - uk_core_news_lg/LICENSE
         - uk_core_news_lg/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-uk_core_news_md
     build:
@@ -2702,6 +2773,7 @@ outputs:
       license_file:
         - uk_core_news_md/LICENSE
         - uk_core_news_md/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-uk_core_news_sm
     build:
@@ -2735,6 +2807,7 @@ outputs:
       license_file:
         - uk_core_news_sm/LICENSE
         - uk_core_news_sm/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-uk_core_news_trf
     build:
@@ -2770,6 +2843,7 @@ outputs:
       license_file:
         - uk_core_news_trf/LICENSE
         - uk_core_news_trf/LICENSES_SOURCES
+      license: MIT
 {% endif %}  # uk
 
 {% if spacy_lang == "xx" %}
@@ -2803,6 +2877,7 @@ outputs:
       license_file:
         - xx_ent_wiki_sm/LICENSE
         - xx_ent_wiki_sm/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-xx_sent_ud_sm
     build:
@@ -2834,6 +2909,7 @@ outputs:
       license_file:
         - xx_sent_ud_sm/LICENSE
         - xx_sent_ud_sm/LICENSES_SOURCES
+      license: CC BY-SA 3.0
 {% endif %}  # xx
 
 {% if spacy_lang == "zh" %}
@@ -2868,6 +2944,7 @@ outputs:
       license_file:
         - zh_core_web_lg/LICENSE
         - zh_core_web_lg/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-zh_core_web_md
     build:
@@ -2900,6 +2977,7 @@ outputs:
       license_file:
         - zh_core_web_md/LICENSE
         - zh_core_web_md/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-zh_core_web_sm
     build:
@@ -2932,6 +3010,7 @@ outputs:
       license_file:
         - zh_core_web_sm/LICENSE
         - zh_core_web_sm/LICENSES_SOURCES
+      license: MIT
 
   - name: spacy-model-zh_core_web_trf
     build:
@@ -2965,6 +3044,7 @@ outputs:
       license_file:
         - zh_core_web_trf/LICENSE
         - zh_core_web_trf/LICENSES_SOURCES
+      license: MIT
 {% endif %}  # zh
 
 
