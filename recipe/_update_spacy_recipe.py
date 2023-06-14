@@ -37,6 +37,15 @@ EXTRA_PKG_REQS = {
     ("fr", "dep_news_trf"): ["tokenizers >=0.11.1,!=0.11.3,<0.13"]
 }
 
+LICENSES = {
+    "CC BY-SA 3.0":     "CC-BY-SA-3.0",
+    "CC BY-SA 4.0":     "CC-BY-SA-4.0",
+    "CC BY-NC-SA 3.0":  "CC-BY-NC-SA-3.0",
+    "GNU GPL 3.0":      "GPL-3.0-or-later",
+    "LGPL-LR":          "LGPLLR",
+    "MIT":              "MIT"
+}
+
 HERE = Path(__file__).parent
 REPO = HERE.parent / "_spacy_models_repo"
 TMPL = HERE.glob("*.j2")
@@ -79,6 +88,11 @@ def update_recipe():
         meta["requirements"] += EXTRA_PKG_REQS.get((meta["lang"], meta["name"]), [])
 
         meta["requirements"] = sorted(set(meta["requirements"]))
+
+        try:
+            meta["license"] = LICENSES[meta["license"]]
+        except KeyError:
+            print("\"" + meta['license'] + "\" not recognized in LICENSES")
 
     context = dict(
         lang_metas=lang_metas,
