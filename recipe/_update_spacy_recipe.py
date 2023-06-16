@@ -9,7 +9,7 @@ import re
 DEV_URL = "https://github.com/explosion/spacy-models"
 VERSION = "3.5.0"
 HEAD = "0a3c186dc76a96b4118e4b204c73ac103b9d8e3d"
-BUILD_NUMBER = "0"
+BUILD_NUMBER = "1"
 
 # see https://github.com/conda-forge/spacy-models-feedstock/issues/2
 SKIP_PATTERNS = [
@@ -35,6 +35,15 @@ EXTRA_PKG_REQS = {
     # TODO: investigate
     # ImportError: tokenizers>=0.11.1,!=0.11.3,<0.13 is required for a normal functioning of this module, but found tokenizers==0.13.2.
     ("fr", "dep_news_trf"): ["tokenizers >=0.11.1,!=0.11.3,<0.13"]
+}
+
+LICENSES = {
+    "CC BY-SA 3.0":     "CC-BY-SA-3.0",
+    "CC BY-SA 4.0":     "CC-BY-SA-4.0",
+    "CC BY-NC-SA 3.0":  "CC-BY-NC-SA-3.0",
+    "GNU GPL 3.0":      "GPL-3.0-or-later",
+    "LGPL-LR":          "LGPLLR",
+    "MIT":              "MIT"
 }
 
 HERE = Path(__file__).parent
@@ -79,6 +88,11 @@ def update_recipe():
         meta["requirements"] += EXTRA_PKG_REQS.get((meta["lang"], meta["name"]), [])
 
         meta["requirements"] = sorted(set(meta["requirements"]))
+
+        try:
+            meta["license"] = LICENSES[meta["license"]]
+        except KeyError:
+            print("\"" + meta['license'] + "\" not recognized in LICENSES")
 
     context = dict(
         lang_metas=lang_metas,
