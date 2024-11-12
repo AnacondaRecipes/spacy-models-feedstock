@@ -7,15 +7,17 @@ import fnmatch
 import re
 
 DEV_URL = "https://github.com/explosion/spacy-models"
-VERSION = "3.5.0"
-HEAD = "0a3c186dc76a96b4118e4b204c73ac103b9d8e3d"
-BUILD_NUMBER = "1"
+VERSION = "3.8.0"
+HEAD = "3d026eec88c53128ed71e10b399d0084361a11a3"
+BUILD_NUMBER = "0"
 
 # see https://github.com/conda-forge/spacy-models-feedstock/issues/2
 SKIP_PATTERNS = [
     # Example (keep this for the future)
-    # needs sudachipy https://github.com/conda-forge/staged-recipes/issues/18871
-    # "ja_core*"
+    # Skip all "*_trf" models as they require spacy-curated-transformers 0.2.2.
+    # If you build it with spacy >=3.8.0.dev0,<4.0.0 it will fail because of incompatibility with numpy >=2.
+    # Remove this skip pattern when spacy-curated-transformers and other spacy curated packages will have numpy >=2 support.
+    "*_trf*"
 ]
 SKIP_PIP_CHECK = {
     # Example (keep this for the future)
@@ -34,7 +36,7 @@ EXTRA_SUBREQS = {
 EXTRA_PKG_REQS = {
     # TODO: investigate
     # ImportError: tokenizers>=0.11.1,!=0.11.3,<0.13 is required for a normal functioning of this module, but found tokenizers==0.13.2.
-    ("fr", "dep_news_trf"): ["tokenizers >=0.11.1,!=0.11.3,<0.13"]
+    #("fr", "dep_news_trf"): ["tokenizers >=0.11.1,!=0.11.3,<0.13"]
 }
 
 LICENSES = {
