@@ -82,7 +82,7 @@ outputs:
       requires:
         - pip
 <% if needs_setuptools(m.requirements) %>
-        - setuptools
+        - setuptools <82
 <% endif %>
       commands:
         <%- if skip_pip_check.get(m.lang, {}).get(m.name) %>

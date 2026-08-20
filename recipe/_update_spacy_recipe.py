@@ -27,8 +27,8 @@ SKIP_PIP_CHECK = {
     # }
 }
 EXTRA_SUBREQS = {
-    # pymorphy3 discovers dict packages via pkg_resources (setuptools) at runtime
-    "pymorphy3": ["setuptools"],
+    # pymorphy3 uses pkg_resources; setuptools >=82 drops it on py3.14+
+    "pymorphy3": ["setuptools <82"],
 }
 EXTRA_PKG_REQS = {
     # TODO: investigate

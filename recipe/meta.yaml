@@ -2338,14 +2338,14 @@ outputs:
         - spacy {{ spacy }}
         - pymorphy3-dicts-ru
         - pymorphy3 >=1.0.0
-        - setuptools
+        - setuptools <82
     test:
       imports:
         - ru_core_news_lg
       requires:
         - pip
 
-        - setuptools
+        - setuptools <82
 
       commands:
         - pip check
@@ -2376,14 +2376,14 @@ outputs:
         - spacy {{ spacy }}
         - pymorphy3-dicts-ru
         - pymorphy3 >=1.0.0
-        - setuptools
+        - setuptools <82
     test:
       imports:
         - ru_core_news_md
       requires:
         - pip
 
-        - setuptools
+        - setuptools <82
 
       commands:
         - pip check
@@ -2414,14 +2414,14 @@ outputs:
         - spacy {{ spacy }}
         - pymorphy3-dicts-ru
         - pymorphy3 >=1.0.0
-        - setuptools
+        - setuptools <82
     test:
       imports:
         - ru_core_news_sm
       requires:
         - pip
 
-        - setuptools
+        - setuptools <82
 
       commands:
         - pip check
@@ -2656,14 +2656,14 @@ outputs:
         - spacy {{ spacy }}
         - pymorphy3-dicts-uk
         - pymorphy3 >=1.0.0
-        - setuptools
+        - setuptools <82
     test:
       imports:
         - uk_core_news_lg
       requires:
         - pip
 
-        - setuptools
+        - setuptools <82
 
       commands:
         - pip check
@@ -2694,14 +2694,14 @@ outputs:
         - spacy {{ spacy }}
         - pymorphy3-dicts-uk
         - pymorphy3 >=1.0.0
-        - setuptools
+        - setuptools <82
     test:
       imports:
         - uk_core_news_md
       requires:
         - pip
 
-        - setuptools
+        - setuptools <82
 
       commands:
         - pip check
@@ -2732,14 +2732,14 @@ outputs:
         - spacy {{ spacy }}
         - pymorphy3-dicts-uk
         - pymorphy3 >=1.0.0
-        - setuptools
+        - setuptools <82
     test:
       imports:
         - uk_core_news_sm
       requires:
         - pip
 
-        - setuptools
+        - setuptools <82
 
       commands:
         - pip check
