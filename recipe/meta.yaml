@@ -379,7 +379,7 @@ source:
 
 build:
   noarch: python
-  number: 2
+  number: 1
 
 requirements:
   host:

@@ -9,7 +9,7 @@ import re
 DEV_URL = "https://github.com/explosion/spacy-models"
 VERSION = "3.8.0"
 HEAD = "3d026eec88c53128ed71e10b399d0084361a11a3"
-BUILD_NUMBER = "2"
+BUILD_NUMBER = "1"
 
 # see https://github.com/conda-forge/spacy-models-feedstock/issues/2
 SKIP_PATTERNS = [
