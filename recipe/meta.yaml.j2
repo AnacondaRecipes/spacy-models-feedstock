@@ -6,8 +6,13 @@
 # from-feedstock` for this feedstock (~500 tasks). If PR CI stays pending on
 # graph-submitter, generate and submit the graph locally instead:
 #
-#   pbp generate from-feedstock --output /tmp/spacy-models-feedstock.yaml .
+#   pbp generate from-feedstock \
+#     --output /tmp/spacy-models-feedstock.yaml \
+#     --custom-metadata-file /tmp/custom_metadata.yaml .
 #   pbp graph create -f /tmp/spacy-models-feedstock.yaml --with-linter
+#
+# For PR checks on manual submit, custom_metadata.yaml needs:
+#   repository_name, git_sha1, pr_number, pr_merged
 #
 # Rebuilds: edit BUILD_NUMBER in _update_spacy_recipe.py, run that script,
 # commit the regenerated meta.yaml (not a hand edit here).
@@ -76,6 +81,9 @@ outputs:
         - << m.lang >>_<< m.name >>
       requires:
         - pip
+<% if needs_setuptools(m.requirements) %>
+        - setuptools
+<% endif %>
       commands:
         <%- if skip_pip_check.get(m.lang, {}).get(m.name) %>
         # TODO: fix pip check
