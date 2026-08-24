@@ -3,8 +3,8 @@
 ################################################################################
 #
 # PBP CI: graph-submitter Lambda times out (~15 min) during `pbp generate
-# from-feedstock` for this feedstock (~500 tasks). If PR CI stays pending on
-# graph-submitter, generate and submit the graph locally instead:
+# from-feedstock` for this feedstock (~500 tasks). Always generate and submit
+# the graph locally for PR CI (graph-submitter will not finish):
 #
 #   pbp generate from-feedstock \
 #     --output /tmp/spacy-models-feedstock.yaml \
