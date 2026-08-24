@@ -9,7 +9,7 @@ import re
 DEV_URL = "https://github.com/explosion/spacy-models"
 VERSION = "3.8.0"
 HEAD = "3d026eec88c53128ed71e10b399d0084361a11a3"
-BUILD_NUMBER = "0"
+BUILD_NUMBER = "1"
 
 # see https://github.com/conda-forge/spacy-models-feedstock/issues/2
 SKIP_PATTERNS = [
@@ -27,11 +27,8 @@ SKIP_PIP_CHECK = {
     # }
 }
 EXTRA_SUBREQS = {
-    # Example (keep this for the future)
-    #
-    ## TODO: remove after
-    ##       https://github.com/conda-forge/spacy-pkuseg-feedstock/pull/11
-    ## "spacy-pkuseg": ["cython"]
+    # pymorphy3 uses pkg_resources; setuptools >=82 drops it on py3.14+
+    "pymorphy3": ["setuptools <82"],
 }
 EXTRA_PKG_REQS = {
     # TODO: investigate
@@ -58,6 +55,10 @@ def reqtify(raw):
     if "=" in raw:
         return " ".join(re.findall(r"(.*?)([><=!~\^].*)", raw)[0])
     return raw
+
+
+def needs_setuptools(requirements):
+    return any("pymorphy3" in req for req in requirements)
 
 
 def ensure_repo():
@@ -88,6 +89,8 @@ def update_recipe():
                     meta["requirements"] += extra_reqs
 
         meta["requirements"] += EXTRA_PKG_REQS.get((meta["lang"], meta["name"]), [])
+        if meta["lang"] == "ru" and any("pymorphy3" in req for req in meta["requirements"]):
+            meta["requirements"].append("pymorphy3-dicts-ru")
 
         meta["requirements"] = sorted(set(meta["requirements"]))
 
@@ -99,6 +102,7 @@ def update_recipe():
     context = dict(
         lang_metas=lang_metas,
         reqtify=reqtify,
+        needs_setuptools=needs_setuptools,
         version=VERSION,
         dev_url=DEV_URL,
         build_number=BUILD_NUMBER,
