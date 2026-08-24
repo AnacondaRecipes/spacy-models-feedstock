@@ -16,6 +16,11 @@
 #
 # Rebuilds: edit BUILD_NUMBER in _update_spacy_recipe.py, run that script,
 # commit the regenerated meta.yaml (not a hand edit here).
+#
+# PBP graph wiring: Jinja {% if spacy_lang %} output groups prevent conda-build
+# from including spacy_lang in get_used_vars() for _lg/_md outputs (only _sm).
+# PBP then links all lg/md tests to the ca build batch. force_use_keys below
+# keeps spacy_lang in each output's variant so tests depend on the right build.
 
 {% set version = "3.8.0" %}
 # see https://github.com/explosion/spacy-models/blob/master/compatibility.json
@@ -399,6 +404,8 @@ outputs:
 {% if spacy_lang == "ca"  or not (spacy_lang is defined) %}
   - name: spacy-model-ca_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ca_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -432,6 +439,8 @@ outputs:
 
   - name: spacy-model-ca_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ca_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -465,6 +474,8 @@ outputs:
 
   - name: spacy-model-ca_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ca_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -500,6 +511,8 @@ outputs:
 {% if spacy_lang == "da" %}
   - name: spacy-model-da_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd da_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -533,6 +546,8 @@ outputs:
 
   - name: spacy-model-da_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd da_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -566,6 +581,8 @@ outputs:
 
   - name: spacy-model-da_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd da_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -601,6 +618,8 @@ outputs:
 {% if spacy_lang == "de" %}
   - name: spacy-model-de_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd de_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -634,6 +653,8 @@ outputs:
 
   - name: spacy-model-de_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd de_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -667,6 +688,8 @@ outputs:
 
   - name: spacy-model-de_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd de_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -702,6 +725,8 @@ outputs:
 {% if spacy_lang == "el" %}
   - name: spacy-model-el_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd el_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -735,6 +760,8 @@ outputs:
 
   - name: spacy-model-el_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd el_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -768,6 +795,8 @@ outputs:
 
   - name: spacy-model-el_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd el_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -803,6 +832,8 @@ outputs:
 {% if spacy_lang == "en" %}
   - name: spacy-model-en_core_web_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd en_core_web_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -836,6 +867,8 @@ outputs:
 
   - name: spacy-model-en_core_web_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd en_core_web_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -869,6 +902,8 @@ outputs:
 
   - name: spacy-model-en_core_web_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd en_core_web_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -904,6 +939,8 @@ outputs:
 {% if spacy_lang == "es" %}
   - name: spacy-model-es_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd es_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -937,6 +974,8 @@ outputs:
 
   - name: spacy-model-es_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd es_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -970,6 +1009,8 @@ outputs:
 
   - name: spacy-model-es_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd es_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1005,6 +1046,8 @@ outputs:
 {% if spacy_lang == "fi" %}
   - name: spacy-model-fi_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd fi_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1038,6 +1081,8 @@ outputs:
 
   - name: spacy-model-fi_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd fi_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1071,6 +1116,8 @@ outputs:
 
   - name: spacy-model-fi_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd fi_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1106,6 +1153,8 @@ outputs:
 {% if spacy_lang == "fr" %}
   - name: spacy-model-fr_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd fr_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1139,6 +1188,8 @@ outputs:
 
   - name: spacy-model-fr_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd fr_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1172,6 +1223,8 @@ outputs:
 
   - name: spacy-model-fr_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd fr_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1207,6 +1260,8 @@ outputs:
 {% if spacy_lang == "hr" %}
   - name: spacy-model-hr_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd hr_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1240,6 +1295,8 @@ outputs:
 
   - name: spacy-model-hr_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd hr_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1273,6 +1330,8 @@ outputs:
 
   - name: spacy-model-hr_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd hr_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1308,6 +1367,8 @@ outputs:
 {% if spacy_lang == "it" %}
   - name: spacy-model-it_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd it_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1341,6 +1402,8 @@ outputs:
 
   - name: spacy-model-it_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd it_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1374,6 +1437,8 @@ outputs:
 
   - name: spacy-model-it_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd it_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1409,6 +1474,8 @@ outputs:
 {% if spacy_lang == "ja" %}
   - name: spacy-model-ja_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ja_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1444,6 +1511,8 @@ outputs:
 
   - name: spacy-model-ja_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ja_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1479,6 +1548,8 @@ outputs:
 
   - name: spacy-model-ja_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ja_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1516,6 +1587,8 @@ outputs:
 {% if spacy_lang == "ko" %}
   - name: spacy-model-ko_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ko_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1549,6 +1622,8 @@ outputs:
 
   - name: spacy-model-ko_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ko_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1582,6 +1657,8 @@ outputs:
 
   - name: spacy-model-ko_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ko_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1617,6 +1694,8 @@ outputs:
 {% if spacy_lang == "lt" %}
   - name: spacy-model-lt_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd lt_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1650,6 +1729,8 @@ outputs:
 
   - name: spacy-model-lt_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd lt_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1683,6 +1764,8 @@ outputs:
 
   - name: spacy-model-lt_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd lt_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1718,6 +1801,8 @@ outputs:
 {% if spacy_lang == "mk" %}
   - name: spacy-model-mk_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd mk_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1751,6 +1836,8 @@ outputs:
 
   - name: spacy-model-mk_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd mk_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1784,6 +1871,8 @@ outputs:
 
   - name: spacy-model-mk_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd mk_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1819,6 +1908,8 @@ outputs:
 {% if spacy_lang == "nb" %}
   - name: spacy-model-nb_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd nb_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1852,6 +1943,8 @@ outputs:
 
   - name: spacy-model-nb_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd nb_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1885,6 +1978,8 @@ outputs:
 
   - name: spacy-model-nb_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd nb_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1920,6 +2015,8 @@ outputs:
 {% if spacy_lang == "nl" %}
   - name: spacy-model-nl_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd nl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1953,6 +2050,8 @@ outputs:
 
   - name: spacy-model-nl_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd nl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -1986,6 +2085,8 @@ outputs:
 
   - name: spacy-model-nl_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd nl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2021,6 +2122,8 @@ outputs:
 {% if spacy_lang == "pl" %}
   - name: spacy-model-pl_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd pl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2054,6 +2157,8 @@ outputs:
 
   - name: spacy-model-pl_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd pl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2087,6 +2192,8 @@ outputs:
 
   - name: spacy-model-pl_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd pl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2122,6 +2229,8 @@ outputs:
 {% if spacy_lang == "pt" %}
   - name: spacy-model-pt_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd pt_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2155,6 +2264,8 @@ outputs:
 
   - name: spacy-model-pt_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd pt_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2188,6 +2299,8 @@ outputs:
 
   - name: spacy-model-pt_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd pt_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2223,6 +2336,8 @@ outputs:
 {% if spacy_lang == "ro" %}
   - name: spacy-model-ro_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ro_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2256,6 +2371,8 @@ outputs:
 
   - name: spacy-model-ro_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ro_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2289,6 +2406,8 @@ outputs:
 
   - name: spacy-model-ro_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ro_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2324,6 +2443,8 @@ outputs:
 {% if spacy_lang == "ru" %}
   - name: spacy-model-ru_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ru_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2362,6 +2483,8 @@ outputs:
 
   - name: spacy-model-ru_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ru_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2400,6 +2523,8 @@ outputs:
 
   - name: spacy-model-ru_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd ru_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2440,6 +2565,8 @@ outputs:
 {% if spacy_lang == "sl" %}
   - name: spacy-model-sl_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd sl_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2473,6 +2600,8 @@ outputs:
 
   - name: spacy-model-sl_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd sl_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2506,6 +2635,8 @@ outputs:
 
   - name: spacy-model-sl_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd sl_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2541,6 +2672,8 @@ outputs:
 {% if spacy_lang == "sv" %}
   - name: spacy-model-sv_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd sv_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2574,6 +2707,8 @@ outputs:
 
   - name: spacy-model-sv_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd sv_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2607,6 +2742,8 @@ outputs:
 
   - name: spacy-model-sv_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd sv_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2642,6 +2779,8 @@ outputs:
 {% if spacy_lang == "uk" %}
   - name: spacy-model-uk_core_news_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd uk_core_news_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2680,6 +2819,8 @@ outputs:
 
   - name: spacy-model-uk_core_news_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd uk_core_news_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2718,6 +2859,8 @@ outputs:
 
   - name: spacy-model-uk_core_news_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd uk_core_news_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2758,6 +2901,8 @@ outputs:
 {% if spacy_lang == "xx" %}
   - name: spacy-model-xx_ent_wiki_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd xx_ent_wiki_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2791,6 +2936,8 @@ outputs:
 
   - name: spacy-model-xx_sent_ud_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd xx_sent_ud_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2826,6 +2973,8 @@ outputs:
 {% if spacy_lang == "zh" %}
   - name: spacy-model-zh_core_web_lg
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd zh_core_web_lg && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2860,6 +3009,8 @@ outputs:
 
   - name: spacy-model-zh_core_web_md
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd zh_core_web_md && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -2894,6 +3045,8 @@ outputs:
 
   - name: spacy-model-zh_core_web_sm
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd zh_core_web_sm && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation

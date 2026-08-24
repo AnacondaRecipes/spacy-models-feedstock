@@ -16,6 +16,11 @@
 #
 # Rebuilds: edit BUILD_NUMBER in _update_spacy_recipe.py, run that script,
 # commit the regenerated meta.yaml (not a hand edit here).
+#
+# PBP graph wiring: Jinja {% if spacy_lang %} output groups prevent conda-build
+# from including spacy_lang in get_used_vars() for _lg/_md outputs (only _sm).
+# PBP then links all lg/md tests to the ca build batch. force_use_keys below
+# keeps spacy_lang in each output's variant so tests depend on the right build.
 
 {% set version = "<< version >>" %}
 # see https://github.com/explosion/spacy-models/blob/master/compatibility.json
@@ -62,6 +67,8 @@ outputs:
 <%- for p, m in metas.items() %>
   - name: spacy-model-<< m.lang >>_<< m.name >>
     build:
+      force_use_keys:
+        - spacy_lang
       noarch: python
       script:
         - cd << m.lang >>_<< m.name >> && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
