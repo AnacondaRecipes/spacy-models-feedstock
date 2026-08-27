@@ -17,6 +17,11 @@
 # Rebuilds: edit BUILD_NUMBER in _update_spacy_recipe.py, run that script,
 # commit the regenerated meta.yaml (not a hand edit here).
 #
+# PBP noarch limitation: graph generator expands per target_platform even though
+# outputs are noarch: python, so the same packages were built 4× and discarded.
+# Skip non-linux-64 until graph generation collapses noarch matrices correctly.
+# Manual generate may also pass: --platforms linux-64
+#
 # PBP graph wiring: Jinja {% if spacy_lang %} output groups prevent conda-build
 # from including spacy_lang in get_used_vars() for _lg/_md outputs (only _sm).
 # PBP then links all lg/md tests to the ca build batch. force_use_keys below
@@ -385,6 +390,7 @@ source:
 build:
   noarch: python
   number: 1
+  skip: true  # [not linux64]
 
 requirements:
   host:
